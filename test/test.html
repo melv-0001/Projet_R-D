@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input file stylisé</title>
+    <style>
+        .file-upload-wrapper {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .file-upload {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-upload-label {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .file-upload-label:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="file-upload-wrapper">
+        <label for="file-upload" class="file-upload-label">Votre photo de profil (PNG, JPG, JPEG)</label>
+        <input 
+            type="file" 
+            id="file-upload" 
+            class="file-upload" 
+            accept=".png, .jpg, .jpeg"
+        >
+    </div>
+</body>
+</html>
+
+
+
+<?php 
+// Vérifier si un fichier a été téléchargé
+if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+    $fileTmpPath = $_FILES['photo']['tmp_name'];
+    $fileName = $_FILES['photo']['name'];
+    $fileSize = $_FILES['photo']['size'];
+    $fileType = $_FILES['photo']['type'];
+    $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+    // Extensions autorisées
+    $allowedExtensions = ['jpg', 'jpeg', 'png'];
+
+    if (in_array($fileExtension, $allowedExtensions)) {
+        // Générer un nom de fichier unique
+        $newFileName = uniqid() . '.' . $fileExtension;
+
+        // Déplacer le fichier dans le dossier cible
+        $uploadFolder = 'uploads/';
+        $destPath = $uploadFolder . $newFileName;
+
+        if (!is_dir($uploadFolder)) {
+            mkdir($uploadFolder, 0777, true); // Crée le dossier s'il n'existe pas
+        }
+
+        if (move_uploaded_file($fileTmpPath, $destPath)) {
+            // Insérer dans la base de données
+            $stmt = $conn->prepare("INSERT INTO utilisateurs (nom, image_path) VALUES (?, ?)");
+            $stmt->bind_param("ss", $name, $destPath);
+
+            if ($stmt->execute()) {
+                echo "Utilisateur ajouté avec succès !";
+            } else {
+                echo "Erreur lors de l'insertion dans la base de données : " . $conn->error;
+            }
+
+            $stmt->close();
+        } else {
+            echo "Erreur lors du téléchargement du fichier.";
+        }
+    } else {
+        echo "Type de fichier non autorisé. Veuillez sélectionner un fichier PNG, JPG ou JPEG.";
+    }
+} else {
+    echo "Veuillez sélectionner une image.";
+}
+?>

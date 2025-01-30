@@ -1,0 +1,365 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color:#1e1a20;
+    animation: fade 0.1s forwards;
+}
+    
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background: url('../images/face.avif') no-repeat center center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+    margin-top: 5rem;
+    box-sizing: border-box;
+    
+}
+/*Ecriture de face*/
+
+.index {
+    text-align: center;
+    padding: 100px 20px;
+    color: #fff;
+    position: absolute;
+    top: 40%;
+}
+.index h1 {
+    font-size: 4.5em;
+    margin-bottom: 20px;
+
+}
+
+.index p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color :rgb(251, 246, 255);
+    position: relative;
+    max-width: 500px;
+    left: 22rem;
+}
+.cta-buttons button {
+    background-color:#44284d;
+    color: #fff; 
+    font-size: 26px;
+    font-weight: bold;
+    border-radius: 25px; 
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    
+}
+.cta-buttons button a{
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: aliceblue;
+}
+
+.cta-buttons button:hover {
+    background-color:#7e637f; 
+    transform: translateY(4px); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+
+}
+.cta-buttons button:active{
+    transform: translateX(2px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/*Section boites*/
+
+
+.feature {
+  padding: 40px;
+  margin: 20px auto;
+  background-color: #dec3df;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  
+}
+
+.feature h2 {
+  color: #333;
+  position: relative;
+}
+
+.feature h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  margin-top: 10px;
+}
+.offres-section {
+    padding: 50px 20px;
+    position: absolute;
+    top: 350%;
+}
+
+.offres-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+    
+}
+
+.offres-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #cdc6c6;
+    text-align: center;
+
+}
+
+.offres-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.offre-card {
+    background-color: #dbbedc;
+    color: #0d1b2a;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.offre-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    margin-left: 2rem;
+}
+
+.offre-card p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #13202e
+}
+
+.offre-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/*Contact*/
+
+main{
+    top: 134%;
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    left: 10%;
+}
+main .sp{
+    color: #1d191f;
+    font-size: 1.5rem;
+    background-color: #d4bbd6;
+    border-radius: 15px;
+    padding: 10px;
+}
+.contain {
+            max-width: 1100px;
+            margin: 20px auto;
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            position:absolute;
+            top: 100px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: #d6b6d8;
+            padding: 20px;
+            padding-bottom: -5px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         
+        }
+
+        .contact-form h1 {
+            font-size: 24px;
+            margin-top: 15px;
+            background-color: #52275496;
+            border-radius: 15px ;
+            padding: 4px;
+        }
+
+        .contact-form p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .text{
+            background: rgb(232, 229, 229);
+        }
+
+        .nom{
+            width: 40%;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: 0.2s;
+            background-color: rgb(232, 229, 229);
+            float: left;
+        }
+        .email{
+            width: 95%;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: 0.2s;
+            background-color: rgb(232, 229, 229);
+        }
+        .prenom{
+            width: 40%;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: 0.2s;
+            background-color: rgb(232, 229, 229);
+            right: -5%;
+            position: relative;
+
+        }
+
+        .contact-form button {
+            background: #52275496;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative;
+            float: left;
+            top: 10px;
+            width: 99%;
+            border-radius: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info img {
+            width: 70%;
+            height: 400px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            top:-3%;
+            position: relative;
+        }
+
+        .contact-info .details {
+            margin-top: 10px;
+            background-color: #fff;
+            border: none;
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            position: relative;
+            top:-3%;
+            background-color: #52275496;
+        }
+
+
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .Email, .Phone{
+            width: 90%;
+            height: 30%;
+            text-align: center;
+            background-color: #ddd;
+            position: relative;
+            left: 20px;
+            border-radius: 10px;
+            font-size: 110%;
+            top: 10px;
+        }
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color:#52275496;
+            color: white;
+            position: absolute;
+            top: 530%;
+            width: 100%;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            color:rgb(2, 2, 2);
+        }
