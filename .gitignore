@@ -1,1 +1,259 @@
-projet_r_d.sql
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style_dashboard.css">
+    <link rel="stylesheet" href="./assets/css/style2.css">
+    <link rel="stylesheet" href="./assets/css/style3.css">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+     <!-- Elmt profile -->
+     <?php require('./templates/profile.php') ?>
+    <!-- Template pour le composant -->
+    <template id="my-component">
+        <!-- SIDEBAR -->
+        <section id="sidebar">
+            <a href="#" class="brand" style="height: 4.4rem;">
+            <i class='bx bx-text'></i><i class='bx bxs-paint bx-tada' style="margin-left: -0.8rem;"></i>
+            <span class="text">TechInnova</span>
+            </a>
+
+            <ul class="side-menu top">
+                <li>
+                    <a href="#" onclick="document.getElementById('true-content').style.display='block'">
+                    <i class='bx bxs-home'></i>
+                    <span class="text">Accueil </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="document.getElementById('true-content').style.display='none'">
+                    <i class='bx bx-hard-hat' ></i>
+                    <span class="text"> Projets R&D </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <i class='bx bxs-package'></i>
+                    <span class="text">Idées innovantes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Partenariats</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <i class='bx bx-calendar' ></i>
+                    <span class="text">Calendrier</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <i class='bx bx-user-pin' ></i>
+                    <span class="text">Utilisateurs</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                    <i class='bx bx-stats'></i>
+                    <span class="text">Statistiques</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="side-menu">
+                <li>
+                    <a href="#">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Paramètres</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- SIDEBAR -->
+
+        <!-- Contenu -->
+        <section id="content">
+            <!-- Navbar -->
+            <nav>
+                <i class='bx bx-menu ' ></i>
+                <a href="" class="nav-link">Categorie</a>
+                <form action="#" method="get">
+                    <div class="form-input">
+                    <input type="text" name="search" placeholder="Rechercher...">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                    </div>
+                </form>
+                <a href="#" class="notification">
+                    <span class="num">6</span>
+                    <i class='bx bx-bell bx-tada'></i>
+                </a>
+                <span style="margin-right: -1rem;">Laravel</span>
+                <a href="#" onclick="openPopup()"><img class="profile" src="./<?php echo $img ?>" alt="profile"></a>
+            </nav>
+           
+            <!-- MAIN -->
+            <main id="true-content">
+                <div class="head-title">
+                    <div class="left">
+                        <h1>Dashboard</h1>
+                        <ul class="breadcrump" style=" display: flex;justify-content: center;align-items: center; gap: 10px;">
+                            <li><a href="#">Dashboard</a></li>
+                            <li><i class="bx bx-chevron-right"></i></li>
+                            <li><a href="#" class="active">Home</a></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn-download">
+                        <i class="bx bxs-cloud-download"></i>
+                        <span class="text">Download PDF</span>
+                    </a>
+                </div>
+                <ul class="box-info">
+                    <li>
+                        <i class="bx bxs-calendar-check"></i>
+                        <span class="text">
+                            <h3>1023</h3>
+                            <p>New orders</p>
+                        </span>
+                    </li>
+                    <li>
+                        <i class="bx bxs-group"></i>
+                        <span class="text">
+                            <h3>1245</h3>
+                            <p>Visitors</p>
+                        </span>
+                    </li>
+                    <li>
+                        <i class="bx bxs-dollar-circle"></i>
+                        <span class="text">
+                            <h3>$45000</h3>
+                            <p>Total fund</p>
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="table-data">
+                    <div class="order">
+                        <div class="head">
+                            <h3>Recent Orders</h3>
+                            <i class="bx bx-filter"></i>
+                            <i class="bx bx-search"></i>
+                        </div>
+                        <table>
+                            <thead>
+                                <th>Users</th>
+                                <th>Date order</th>
+                                <th>Status</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="./assets/images/contacts.jpeg" alt="">
+                                        <p>John Doe</p>
+                                    </td>
+                                    <td>09-03-2006</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="./assets/images/contacts.jpeg" alt="">
+                                        <p>John Doe</p>
+                                    </td>
+                                    <td>09-03-2006</td>
+                                    <td><span class="status process">process</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="./assets/images/contacts.jpeg" alt="">
+                                        <p>John Doe</p>
+                                    </td>
+                                    <td>09-03-2006</td>
+                                    <td><span class="status pending">pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="todo">
+                        <div class="head">
+                            <h3>Todos</h3>
+                            <i class="bx bx-plus"></i>
+                            <i class="bx bx-filter"></i>
+                        </div>
+                        <ul class="todo-list">
+                            <li class="completed">
+                                <p>Todo List</p>
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                            </li>
+                            <li class="completed">
+                                <p>Todo List</p>
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                            </li>
+                            <li class="not-completed">
+                                <p>Todo List</p>
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                            </li>
+                            <li class="not-completed">
+                                <p>Todo List</p>
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </template>
+
+    <my-component></my-component>
+
+    <!-- Inclusion du fichier JavaScript externe -->
+    <script src="./assets/js/popup.js"></script>
+
+    <!-- Définition du composant personnalisé après le template -->
+    <script>
+class MyComponent extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.loadContent();
+    }
+
+    loadContent() {
+        const shadowRoot = this.shadowRoot;
+
+        // Ajouter les liens vers les fichiers CSS
+        const link1 = document.createElement('link');
+        link1.setAttribute('rel', 'stylesheet');
+        link1.setAttribute('href', './assets/css/style_dashboard.css');
+
+        const link2 = document.createElement('link');
+        link2.setAttribute('rel', 'stylesheet');
+        link2.setAttribute('href', './assets/css/style2.css');
+
+        const link3 = document.createElement('link');
+        link3.setAttribute('rel', 'stylesheet');
+        link3.setAttribute('href', './assets/css/style3.css');
+
+        shadowRoot.appendChild(link1);
+        shadowRoot.appendChild(link2);
+        shadowRoot.appendChild(link3);
+
+        // Cloner et ajouter le template
+        const template = document.getElementById('my-component').content.cloneNode(true);
+        shadowRoot.appendChild(template);
+    }
+}
+customElements.define('my-component', MyComponent);
+
+    </script>
+</body>
+</html>

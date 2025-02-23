@@ -1,3 +1,17 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['nom'],$_SESSION['role'])) {
+    if ($_SESSION['role']==='chercheur'){
+        header('Location: ./dash_chercheur.php') ;}
+    elseif($_SESSION['role']==='admin'){header('Location: ./dashboard.php');}
+    else{
+        header('Location: ./dash_collab.php');
+    };
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

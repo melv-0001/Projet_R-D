@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insomnia API Catalog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    display: flex;
+    height: 100vh;
+}
+
+/* Barre latérale */
+.sidebar {
+    width: 60px;
+    background: #111;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .logo {
+    background: #8aadf4;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+    color: #8aadf4;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar nav ul li:hover {
+    color: #f4a261;
+}
+
+/* Contenu principal */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #282a36;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.send-btn {
+    background: #8aadf4;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+}
+
+.request-section {
+    display: flex;
+    justify-content: space-between;
+    background: #44475a;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.request {
+    display: flex;
+    align-items: center;
+}
+
+.request .method {
+    background: #50fa7b;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.request input {
+    background: none;
+    border: none;
+    color: #cdd6f4;
+    font-size: 16px;
+    width: 100%;
+}
+
+.status {
+    display: flex;
+    gap: 10px;
+}
+
+.status-code {
+    color: #50fa7b;
+}
+
+.json-editor, .response {
+    background: #282a36;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+pre {
+    color: #f8f8f2;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Barre latérale -->
+        <aside class="sidebar">
+            <div class="logo">IA</div>
+            <nav>
+                <ul>
+                    <li><i class="fas fa-home"></i></li>
+                    <li><i class="fas fa-list"></i></li>
+                    <li><i class="fas fa-database"></i></li>
+                    <li><i class="fas fa-cog"></i></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="content">
+            <header>
+                <h1>Insomnia API Catalog</h1>
+                <button class="send-btn">Send</button>
+            </header>
+
+            <section class="request-section">
+                <div class="request">
+                    <span class="method">POST</span>
+                    <input type="text" value="https://api.example.com/entries" />
+                </div>
+                <div class="status">
+                    <span class="status-code">200 OK</span>
+                    <span class="time">253 ms</span>
+                    <span class="size">1372 B</span>
+                </div>
+            </section>
+
+            <section class="json-editor">
+                <pre>
+{
+    "https": true,
+    "category": "pets",
+    "API": "Cataas"
+}
+                </pre>
+            </section>
+
+            <section class="response">
+                <h3>Response Preview</h3>
+                <pre>
+{
+    "count": 1426,
+    "entries": [
+        {
+            "API": "Cataas",
+            "Description": "Cat as a service (cats pictures)",
+            "Auth": "None",
+            "HTTPS": true,
+            "Cors": "no",
+            "Link": "https://cataas.com",
+            "Category": "Animals"
+        }
+    ]
+}
+                </pre>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

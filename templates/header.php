@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ma Navbar Insomnia</title>
+  <title>Ma Navbar</title>
   <link rel="stylesheet" href="styles.css">
   <style>
   nav {
@@ -10,6 +10,7 @@
   align-items: center;
   background-color:#d6b6d8;
   padding: 10px;
+  
 }
 
 .logo {
@@ -23,17 +24,19 @@
 }
 
 .nav-links li {
-  margin-left: 10px;
+  margin-left: 25px;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #333;
 }
-.nav-links a :hover{
+.nav-links a:hover{
   cursor: pointer;
-  text-decoration: underline ;
   transition: all 0.3s ease;
+  color: #fff;
+  text-decoration:underline;
+  
 }
   </style>
 </head>
@@ -44,8 +47,6 @@
       <li><a href="#index">Accueil</a></li>
       <li><a href="#infos">A propos</a></li>
       <li><a href="#contacts">Contact</a></li>
-      <li><a href="#">Connexion</a></li>
-      <li><a href="#">Inscription</a></li>
     </ul>
   </nav>
 

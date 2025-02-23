@@ -97,7 +97,7 @@ function upload_image() {
           }
   
           // Créer le dossier d'upload s'il n'existe pas
-          $uploadDir = '/xampp/htdocs/ProjetR&D/uploads/avatar/';
+          $uploadDir = 'uploads/';
           if (!is_dir($uploadDir)) {
               mkdir($uploadDir, 0755, true);
           }
@@ -111,7 +111,7 @@ function upload_image() {
           // Déplacer le fichier depuis le dossier temporaire vers le dossier d'upload
           if (move_uploaded_file($fileTmpPath, $destinationPath)) {
               // Retourner le chemin relatif pour l'enregistrement en base de données
-              return 'uploads/' . $newFileName;
+              return 'uploads/avatar/' . $newFileName;
               
           } else {
               die("Erreur lors du déplacement du fichier.");
@@ -120,6 +120,34 @@ function upload_image() {
           die("Aucun fichier n'a été téléchargé ou une erreur s'est produite.");
       }
   };
+
+
+function Dest_session(){
+  
+// Commencer la session
+session_start();
+
+// Vider toutes les variables de session
+$_SESSION = array();
+
+// // Si vous souhaitez détruire complètement la session, supprimez également le cookie de session
+// if (ini_get("session.use_cookies")) {
+//     $params = session_get_cookie_params();
+//     setcookie(session_name(), '', time() - 42000,
+//         $params["path"], $params["domain"],
+//         $params["secure"], $params["httponly"]
+//     );
+// }
+
+// Finalement, détruire la session
+session_destroy();
+
+// Redirection vers la page de connexion ou d'accueil
+header("Location: login.php");
+exit();
+
+
+}
   
 
 ?>

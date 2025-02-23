@@ -1,10 +1,4 @@
-<?php 
-session_start();
-if (!isset($_SESSION['nom'])) {
-    header('Location: ./index_signup.php');
-    exit();
-}
-?>
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,6 +6,10 @@ if (!isset($_SESSION['nom'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link  rel="stylesheet" href="./assets/css/style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" >
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/48d43c639e.js" crossorigin="anonymous"></script>
     <script src="finisher-header.es5.min.js" type="text/javascript"></script>
     <title>TechInnova</title>
  
@@ -34,15 +32,15 @@ if (!isset($_SESSION['nom'])) {
             <h1>TechInnova : Pensez Grand, Pensez Innovation !</h1>
             <p>Participez à nos projets en proposant des idées créatives et innovantes ou consultez l'évolution des projets en temps réel.</p>
             <div class="cta-buttons">
-                <button><a href="./index_login.php">Connexion</a></button>
+                <button><a href="./index_signup.php">Commencer</a></button>
             </div>
     </section>
 <div class="header finisher-header" style="width: 100%; height: 300px;">
-    Logo, navigation, etc.
+
 </div>
 <!--Section boites-->
 <section class="section-boites" >
-    <h1 style="margin-top: 36.5%;" id="infos">Avec nous travailler c'est ...</h1>
+    <h1 style="margin-top: 20%;" id="infos">Avec nous travailler c'est ...</h1>
   <section class="feature" id="innover" style="margin-top: 7%;">
     <h2>Innover</h2>
     <p>Faites progresser vos projets avec notre plateforme de pointe conçue pour la collaboration en R&D et le suivi des progrès.</p>
@@ -84,10 +82,10 @@ if (!isset($_SESSION['nom'])) {
     </section>
 
     <main style="margin-top: 10%;">
-    <h1 id="contacts" style="margin-top: 125%;margin-left:-4rem">Pour nous contacter c'est simple...</h1>
+    <h1 id="contacts" style="margin-left:-4rem">Pour nous contacter c'est simple...</h1><br>
     <div class="contain" id="contain">
         <div class="contact-form">
-            <h1>Discutons ☺</h1>
+            <h1>Discutons <icon>😊</icon></h1>
             <p>Vous avez des questions ou des commentaires ? Nous sommes là pour vous aider. Envoyez-nous un message et nous vous répondrons dans les 24 heures.</p>
             <br>
             <hr>
@@ -104,11 +102,12 @@ if (!isset($_SESSION['nom'])) {
 
         <div class="contact-info">
             
-            <p class="sp">Ou encore, envoyez nous un mail et suivez nous sur nos differentes pages</p>
+            
             <div class="details">
-                <p class="Email"><strong>Email</strong>&nbsp;<i class="fa-solid fa-envelope" style="color: #103c89;"></i>
-                <br><a href="mailto:TechInnova@outlook.com">TechInnova@outlook.com</a></p>
-                <p class="Phone"><strong>Phone</strong>&nbsp;<i class="fa-solid fa-phone" style="color: #2556ad;"></i>
+            <p class="sp">Ou encore, envoyez nous un mail et suivez nous sur nos differentes pages</p>
+                <p class="Email"><strong>Email</strong>&nbsp;<i class="fa-solid fa-envelope" style="color:rgb(127, 48, 132);"></i>
+                <br><a href="mailto:TechInnova@outlook.com" style="color:rgb(142, 64, 133);">TechInnova@outlook.com</a></p>
+                <p class="Phone"><strong>Phone</strong>&nbsp;<i class="fa-solid fa-phone" style="color:rgb(142, 64, 133);"></i>
                 <br>+225 07 07 99 99 00</p>
             </div>
         </div>
