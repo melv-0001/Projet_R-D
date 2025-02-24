@@ -68,7 +68,7 @@ h1 {
     color :rgb(251, 246, 255);
     position: relative;
     max-width: 500px;
-    left: 22rem;
+    left: 32%;
 }
 .cta-buttons button {
     background-color:#44284d;
@@ -353,7 +353,7 @@ main{
             color: white;
             position: absolute;
             /* top: 530%; */
-            width: 77rem;
+            width: 100%;
         }
 
         footer ul {

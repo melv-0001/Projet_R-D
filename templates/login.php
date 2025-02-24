@@ -102,9 +102,9 @@ if (isset($_POST['button']) && $_POST['button'] == 'submit'){
                 $_SESSION['role'] = $user['role'];
                 $_SESSION['password'] = $user['mot_de_passe'];
                 $_SESSION['image'] = $user['image_profile'];
-                if ($_SESSION['email']==='Laravel@gmail.com' && password_verify('Laravellaplusbellefille',$_SESSION['password'])) {
-                    $_SESSION['role']='admin';
-                };
+                // if ($_SESSION['email']==='Laravel@gmail.com' && password_verify('Laravellaplusbellefille',$_SESSION['password'])) {
+                //     $_SESSION['role']='admin';
+                // };
                 if (!isset($_SESSION['nom'],$_SESSION['role'])) {
                     header('Location: ../index_signup.php');
                     exit();

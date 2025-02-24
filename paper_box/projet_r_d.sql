@@ -1,5 +1,4 @@
-CREATE DATABASE gestion_projets;
-USE gestion_projets;
+
 
 CREATE TABLE utilisateur (
     id_utilisateur INT AUTO_INCREMENT PRIMARY KEY,

@@ -97,7 +97,7 @@ function upload_image() {
           }
   
           // Créer le dossier d'upload s'il n'existe pas
-          $uploadDir = 'uploads/';
+          $uploadDir = '../uploads/avatar/';
           if (!is_dir($uploadDir)) {
               mkdir($uploadDir, 0755, true);
           }
