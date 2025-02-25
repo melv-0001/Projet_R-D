@@ -85,6 +85,7 @@ body {
     background-color: transparent;
     padding: 6px;
 }
+
 #sidebar .side-menu li a{
     width: 100%;
     height: 100%;
@@ -100,6 +101,14 @@ body {
 }
 #sidebar .side-menu li a:hover{
     color: #7d2670;
+}
+
+#sidebar.hide .side-menu li a {
+	width: calc(48px - (4px * 2));
+	transition: width .3s ease;
+}
+#sidebar.hide {
+	width: 60px;
 }
 /* SIDEBAR */
 
