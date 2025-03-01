@@ -1,9 +1,10 @@
 // ajax request
-function fetcher($_location) {
+function fetcher($_location,$title) {
     fetch($_location)
         .then(response => response.text())
         .then(data => {
             document.getElementById('content-main').innerHTML = data;
+			document.getElementById('ancre').innerHTML = $title;
 			console.log('success');
         })
         .catch(error => console.error('Erreur de chargement :', error));

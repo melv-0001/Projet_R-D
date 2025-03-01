@@ -209,7 +209,7 @@ body {
 	align-items: center;
 }
 
-#content nav .profile{
+#content nav .profile img{
     width: 36px;
     height: 36px;
     object-fit: cover;

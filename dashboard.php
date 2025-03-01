@@ -1,12 +1,22 @@
 <?php
 // initialisation de la session
 session_start();
-// connexion à la db
-require_once('../includes/pdo.php');
-$sql="SELECT * FROM projet" ;
-$stmt = $connect->prepare($sql);
-$stmt->execute();
-// array($email)
+
+// Vérification des accès
+if (!isset($_SESSION['nom'],$_SESSION['role'])) {
+	header('Location: ../index_signup.php');
+	exit();
+}else{ 
+	if($_SESSION['role']!='admin'){
+		header('Location: ../index.php');
+	}else{
+		// echo "Bienvenue ".$_SESSION['nom'];
+		// echo "Votre role est ".$_SESSION['role'];
+		
+	}
+};
+
+
 
 ?>
 <!DOCTYPE html>
@@ -40,43 +50,43 @@ $stmt->execute();
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="#">
+				<a href="#" onclick="fetcher('./templates/home_page.php?','Home')">
 				<i class='bx bxs-home'></i>
 				<span class="text">Accueil </span>
 				</a>
 			</li>
 			<li>
-				<a href="#" onclick="fetcher('./dash_collab.php')">
+				<a href="#" onclick="fetcher('./templates/projet_page.php?', 'Projets')">
 				<i class='bx bxs-package'></i>
 				<span class="text"> Projets R&D </span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
+				<a href="#" onclick="fetcher('./templates/idee_page.php?', 'Idées')">
+					<i class='bx bxs-doughnut-chart'></i>
                     <span class="text">Idées innovantes</span>
 				</a>
 			</li>
 			<li>
-                    <a href="#">
+                    <a href="#" onclick="fetcher('./templates/statistique_page.php?', 'Statistiques')">
                     <i class='bx bx-stats'></i>
                     <span class="text">Statistiques</span>
                     </a>
             </li>
 			<li>
-				<a href="#">
+				<a href="#" onclick="fetcher('./templates/calendrier_page.php?', 'Calendrier')">
 				   <i class='bx bx-calendar' ></i>
 				   <span class="text">Calendrier</span>
 				</a>
 			</li>
 			<li>
-                    <a href="#">
+                    <a href="#" onclick="fetcher('./templates/utilisateur_page.php?', 'Utilisateurs')">
                     <i class='bx bx-user-pin' ></i>
                     <span class="text">Utilisateurs</span>
                     </a>
             </li>
 			<li>
-				<a href="#">
+				<a href="#" onclick="fetcher('./templates/partenariat_page.php?', 'Partenariats')">
 				   <i class='bx bxs-group'></i>
 				   <span class="text">Partenariats</span>
 				</a>
@@ -84,13 +94,13 @@ $stmt->execute();
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="#">
+				<a href="#" onclick="fetcher('./templates/parametre_page.php?', 'Paramètres')">
 					<i class='bx bxs-cog' ></i>
 					<span class="text">Settings</span>
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="#" class="logout" onclick=" if( confirm('Voulez vous vous deconnecter?')){window.location.href='./templates/logout.php'};<?php //header('Location: ./templates/logout.php') ?>">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -115,16 +125,19 @@ $stmt->execute();
 			</form>
 			<input type="checkbox" id="switch-mode" hidden>
 			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
+			<a href="#" class="notification" onclick="toggleNotifications()">
 			    <i class='bx bx-bell bx-tada'></i>
-				<span class="num">8</span>
+				<span class="num" id="notificationCount">8</span>
 			</a>
+			<span style="right:1px"><?php echo $_SESSION['nom']?></span>
 			<a href="#" class="profile">
-				<img src="img/people.png">
+				<img src="./<?php echo $_SESSION['image']?>">
 			</a>
 		</nav>
 		<!-- NAVBAR -->
-
+		 <!-- Notif -->
+		 <?php require_once './templates/notification.php'; ?>
+		 <!-- Notif -->
 		<!-- MAIN -->
 		<main>
 			<div class="head-title">
@@ -136,7 +149,7 @@ $stmt->execute();
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="#">Home</a>
+							<a class="active" id="ancre" href="#">Home</a>
 						</li>
 					</ul>
 				</div>
@@ -145,129 +158,14 @@ $stmt->execute();
 					<span class="text">Download PDF</span>
 				</a>
 			</div>
-		<section id="content-main">
-			<ul class="box-info">
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>1020</h3>
-						<p>New Order</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-group' ></i>
-					<span class="text">
-						<h3>2834</h3>
-						<p>Visitors</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-dollar-circle' ></i>
-					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Sales</p>
-					</span>
-				</li>
-			</ul>
-
-
-			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3>Recent Orders</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<table>
-						<thead>
-							<tr align="left">
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php while ($proj = $stmt){} ?>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<?php require_once('./templates/home_page.php') ?>
 		</main>
 		</section>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
 	
-    <?php require_once 'notif.php'; ?>
+    
 	<script src="./assets/js/script.js"></script>
 </body>
 </html>
