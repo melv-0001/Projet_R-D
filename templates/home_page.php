@@ -14,8 +14,6 @@ $req->execute();
 $sql2 = "SELECT * FROM tache ORDER BY id_tache DESC LIMIT 5";
 $req2 = $connect->prepare($sql);
 $req2->execute();
-// $_SESSION['n']='';
-// $_SESSION['n']='Home';
 ?>
 <section id="content-main">
 			<ul class="box-info">

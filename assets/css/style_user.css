@@ -1,0 +1,128 @@
+@import url('./style_dashboard.css');
+
+.order{
+     flex-basis:500px;
+     flex-grow: 1;
+}
+.order .head{
+    display:flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom:24px;
+}
+.order .head h3{
+    margin-right:auto;
+    font-size:24px;
+    font-weight: 600;
+}
+.order table{
+    width:100%;
+    border-collapse: collapse;
+    
+}
+.order table th{
+    padding-bottom: 24px;
+    font-size: 13px;
+    justify-content: left;
+    border-bottom:1px solid var(--dark-grey);
+    
+}
+.order table tbody tr:hover{
+    background-color: var(--light);
+}
+.todo{
+    flex-basis:280px;
+    flex-grow: 1;
+}
+
+.box-info{
+    background-color: var(--grey);
+}
+.order .head .bx{
+    cursor:pointer;
+}
+.order table thead th{
+    justify-content: left;
+    /*à enlever si ça ne va pas*/
+    /* margin-left: -4rem; */
+}
+.order table tr td{
+    padding:16px 0;
+   
+
+}
+.order table tbody tr:hover {
+	background: var(--grey);
+}
+.order table tr td .status {
+	font-size: 10px;
+	padding: 6px 16px;
+	color: var(--light);
+	border-radius: 20px;
+	font-weight: 700;
+}
+.order table tr td .status.completed {
+	background: var(--blue);
+}
+.order table tr td .status.process {
+	background: var(--yellow);
+}
+.order table tr td .status.pending {
+	background: var(--orange);
+}
+
+
+.todo {
+	flex-grow: 1;
+	flex-basis: 300px;
+}
+.todo .head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.todo .head h3 {
+    margin-right: 12rem;
+    
+}
+.todo .todo-list {
+	width: 100%;
+}
+.todo .todo-list li {
+	width: 100%;
+	margin-bottom: 16px;
+	background: var(--grey);
+	border-radius: 10px;
+	padding: 14px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.todo .todo-list li .bx {
+	cursor: pointer;
+}
+.todo .todo-list li.completed {
+	border-left: 10px solid var(--blue);
+}
+.todo .todo-list li.not-completed {
+	border-left: 10px solid var(--orange);
+}
+.todo .todo-list li:last-child {
+	margin-bottom: 0;
+}
+
+.order table tr td:first-child{
+    align-items: center;
+    gap:12x;
+    display:flex;
+    padding-left: 6px;
+    /* background-color: var(--light); */
+}
+.order table td img{
+    width:30px;
+    height:30px;
+    object-fit: cover;
+    border-radius:50%;
+    margin-right: 1rem;
+}

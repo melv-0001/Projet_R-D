@@ -34,8 +34,7 @@ if (!isset($_SESSION['nom'],$_SESSION['role'])) {
 	<!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 	<!-- <link rel="stylesheet" href="./assets/css/style_test.css"> -->
 	<script src="./assets/js/script.js"></script>
-
-	
+	<script src="./assets/js/comment.js"></script>	
 
 	<title>TechInnova</title>
 </head>
