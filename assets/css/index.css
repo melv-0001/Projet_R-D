@@ -78,7 +78,7 @@ h1 img {
 
 /* BOUTONS GÉNÉRIQUES */
 .btn {
-    background: linear-gradient(45deg, #007bff, #0056b3);
+    background: linear-gradient(45deg,  #6d4480, #70308e);
     border: none;
     color: white;
     padding: 12px 20px;
@@ -96,7 +96,7 @@ h1 img {
 
 .btn:hover {
     transform: scale(1.1);
-    background: linear-gradient(45deg, #0056b3, #007bff);
+    background: linear-gradient(45deg, #5a2c6f, #b767dc);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -138,14 +138,14 @@ h1 img {
     padding: 10px 20px;
     border-radius: 50px;
     border: none;
-    background: linear-gradient(45deg, #007bff, #0056b3);
+    background: linear-gradient(45deg,  #5a2c6f, #b767dc);
     color: white;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 .doc-buttons button:hover {
-    background: linear-gradient(45deg, #0056b3, #007bff);
+    background: linear-gradient(45deg,  #5a2c6f, #b767dc);
     transform: scale(1.05);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
@@ -186,7 +186,7 @@ h1 img {
 
 /* Bloc de chaque catégorie */
 .list {
-    background: white;
+    background: white ;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
