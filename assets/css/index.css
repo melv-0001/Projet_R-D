@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+.contenter {
+    background: #F9F9F9;
+    width: 98%;
+    max-width: 1100px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* TITRE PRINCIPAL */
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 30px;
+    color: #333;
+}
+
+h1 img {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* IMAGE */
+.image {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* DÉTAILS DU PROJET */
+.project-details p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.project-details strong {
+    color: #222;
+    font-weight: bold;
+}
+
+/* DATES */
+.dates {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 15px;
+    background: #f8f9fa;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dates p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* SECTION COMMENTAIRES */
+.commentaire {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* BOUTONS GÉNÉRIQUES */
+.btn {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #0056b3, #007bff);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* SECTION DOCUMENTS */
+/* SECTION DOCUMENTS */
+.doc {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; 
+    max-width: 100%; 
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 20px; 
+    box-sizing: border-box; 
+}
+
+/* TITRE DOCUMENT */
+.doc h3 {
+    font-size: 22px;
+    color: #333;
+    margin: 0; 
+    white-space: nowrap; 
+}
+
+
+.doc-buttons {
+    display: flex;
+    gap: 15px;
+}
+.doc-buttons button {
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.doc-buttons button:hover {
+    background: linear-gradient(45deg, #0056b3, #007bff);
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.doc-buttons button:active {
+    transform: scale(0.95);
+}
+
+/* MEDIA QUERIES POUR RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .contenter {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .dates {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .commentaire {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .doc-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+/* Conteneur principal */
+.user {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* Bloc de chaque catégorie */
+.list {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Effet au survol */
+.list:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Titres */
+.list h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Liste */
+.list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Élément de liste */
+.list ul li {
+    font-size: 16px;
+    color: #444;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Dernier élément sans bordure */
+.list ul li:last-child {
+    border-bottom: none;
+}
+
+/* Effet au survol sur les noms */
+.list ul li:hover {
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list {
+        width: 90%;
+    }
+}
+/* 🎨 Style du formulaire de commentaire */
+/* Animation du formulaire */
+#comment-form {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#comment-form.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* 📝 Style du champ de texte */
+#comment-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Effet au focus */
+#comment-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* 🎯 Bouton Publier */
+#submit-comment {
+    align-self: flex-end;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Effet hover */
+#submit-comment:hover {
+    background: linear-gradient(45deg, #0056b3, #007bff);
+    transform: scale(1.05);
+}
+
+/* ✨ Animations pour l'apparition du formulaire */
+#comment-form {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#comment-form.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🗨️ Style des commentaires publiés */
+#comment-list {
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.comment {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+.comment p {
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+}

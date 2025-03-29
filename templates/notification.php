@@ -29,11 +29,23 @@
             position: absolute;
             top: 40px;
             right: 1%;
+            background-color: #F9F9F9;
+            width: 250px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 1000;
+            color:rgb(44, 39, 46);
+            /* display: none;
+            position: absolute;
+            top: 40px;
+            right: 1%;
             background: white;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 5px;
             width: 250px;
-            padding: 10px;
+            padding: 10px; */
             transition: all 0.3s ease;
         }
         .notification-list ul {

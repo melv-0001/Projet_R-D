@@ -12,6 +12,144 @@ function fetcher($_location,$title) {
 }
 
 ;
+
+
+function suppr_user(user_id) {
+    if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./includes/delete_user.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                alert(xhr.responseText);
+                // Rafraîchir la page ou supprimer la ligne de l'utilisateur dans le tableau
+                location.reload();
+            }
+        };
+        xhr.send("id=" + user_id);
+    }
+}
+
+
+function update_user_form(user_id) {
+    document.getElementById('userId').value = user_id;
+    document.getElementById('updateUserForm').style.display = 'block';
+    document.getElementById('utilisateur').style.display = 'none';
+}
+
+function update_user() {
+    var user_id = document.getElementById('userId').value;
+    var email = document.getElementById('email').value;
+    var role = document.getElementById('role').value;
+    var nom = document.getElementById('nom').value;
+
+   
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "./includes/update_user.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            alert(xhr.responseText);
+            // Rafraîchir la page ou masquer le formulaire
+            location.reload();
+        }
+    };
+    xhr.send("id=" + user_id +"&nom="+nom+ "&email=" + email + "&role=" + role);
+    return false;
+}
+
+;
+
+
+    // Gestion du bouton like
+    let likeButton = document.getElementById("like-btn");
+    let hasLiked = false;
+
+    likeButton.onclick = function () {
+        hasLiked = !hasLiked;
+        likeButton.innerHTML = `<i class="fa-regular fa-thumbs-up"></i> J'aime ${hasLiked ? "(1)" : ""}`;
+    };
+
+    // Gestion du formulaire de commentaire
+    function toggleForm(formId, inputId) {
+        let form = document.getElementById(formId);
+        let input = document.getElementById(inputId);
+        form.style.display = "block";
+        setTimeout(() => form.classList.add("show"), 10);
+        input && input.focus();
+    }
+
+    document.getElementById("comment-btn").onclick = function () {
+        toggleForm("comment-form", "comment-input");
+    };
+
+    document.getElementById("submit-comment").onclick = function (event) {
+        event.preventDefault();
+        let commentInput = document.getElementById("comment-input");
+        let commentList = document.getElementById("comment-list");
+        let commentText = commentInput.value.trim();
+
+        if (commentText) {
+            let newComment = document.createElement("div");
+            newComment.classList.add("comment");
+            newComment.innerHTML = `
+                <div class="comment-container">
+                    <img src="photo.jpg" alt="Photo de profil" class="profile-pic">
+                    <div class="comment-content">
+                        <p class="comment-text">${commentText}</p>
+                    </div>
+                </div>
+            `;
+            commentList.appendChild(newComment);
+            commentInput.value = "";
+            closeForm("comment-form");
+        }
+    };
+
+    // Gestion du formulaire "Ajouter une idée"
+    document.getElementById("idea-btn").onclick = function () {
+        toggleForm("idea-form");
+    };
+
+    document.getElementById("submit-idea").onclick = function (event) {
+        event.preventDefault();
+        let name = document.getElementById("idea-name").value.trim();
+        let email = document.getElementById("idea-email").value.trim();
+        let message = document.getElementById("idea-message").value.trim();
+
+        if (name && email && message) {
+            alert("Votre idée a été soumise avec succès !");
+            ["idea-name", "idea-email", "idea-message"].forEach(id => document.getElementById(id).value = "");
+            closeForm("idea-form");
+        } else {
+            alert("Veuillez remplir tous les champs !");
+        }
+    };
+
+    // Gestion de la liste des tâches
+    document.getElementById("task-btn").onclick = function () {
+        toggleVisibility("task-list");
+    };
+
+    // Gestion de l'affichage du tableau des documents
+    document.getElementById("voir-btn").onclick = function () {
+        toggleVisibility("document-table");
+    };
+
+    // Fonctions utilitaires
+    function toggleVisibility(elementId) {
+        let element = document.getElementById(elementId);
+        element.style.display = element.style.display === "none" ? "block" : "none";
+    }
+
+    function closeForm(formId) {
+        let form = document.getElementById(formId);
+        form.classList.remove("show");
+        setTimeout(() => form.style.display = "none", 500);
+    }
+;
+
+
 // TOGGLE SIDEBAR
 // const menuBar = document.getElementById('menu-bar');
 // const sidebar = document.getElementById('sidebar');
