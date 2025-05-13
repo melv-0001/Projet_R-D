@@ -73,6 +73,7 @@ if (isset($_POST['button']) && $_POST['button'] == 'submit'){
 <?php
 //connexion à la db
 require_once('../includes/pdo.php');
+require_once('../includes/function.php');
 
 //Traitement des données
 if (isset($_POST['button']) && $_POST['button'] == 'submit'){ 
@@ -120,7 +121,7 @@ if (isset($_POST['button']) && $_POST['button'] == 'submit'){
                 // header('Location:../accueil.php');
             } else {
                 // Afficher un message d'erreur si le mot de passe est incorrect
-                echo 'Le mot de passe est incorrect';
+                faillure('');
             }
         } else {
             // Si l'utilisateur n'existe pas
